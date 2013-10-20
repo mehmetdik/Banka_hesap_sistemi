@@ -1,0 +1,144 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>//strcmp yi kullanmak için bu kutuphaneyi cagırdık
+#include<Windows.h>//system("cls") yi kullanabilmek için bu kütüphaneyi cagırdık
+#include<stdlib.h>//exit(1) i kullanmak için bu kutuphaneyi cagırdık
+void main()
+{
+
+	char kullaniciadi[50]="mehmet",girilenad[50];
+    int  hesap=2000,secenek,menu,yatırılanpara,cekilenpara,gonderilenpara,cıkıs,sifre=1234,x,girilensifre;
+	printf("Kullanici adinizi giriniz: ");
+	scanf("%s",&girilenad);
+	printf("\nSifrenizi giriniz: ");
+	scanf("%d",&girilensifre);
+	if(strcmp(girilenad,kullaniciadi)==0)
+	{
+	system("CLS");
+
+
+	if(girilensifre==sifre )
+	{
+		for(;;)
+	
+	{
+	
+	printf("\nHosgeldin %s",kullaniciadi);
+	printf("\n\n\n1-Hesabimdaki para");
+	printf("\n\n\n2-Hesabima para yatirma");
+	printf("\n\n\n3-Para cekme");
+	printf("\n\n\n4-Baska bir hesaba para aktarma");
+	printf("\n\n\n5-Cikis\n\n\n");
+	printf("\n\n\n\n\n\n        BIZI TERCIH ETTIGINIZ ICIN TESEKKURLER...");
+	scanf("%d",&secenek);//Girdigimiz degeri secenek e atıyoruz
+	system("CLS");//Ekrandakileri siler
+	switch(secenek)//Alttaki case'lerin secenek olarak bize sunar
+	{
+	case 1:
+		int menu;
+		
+			printf("\n\nHesabimdaki para = %d TL\n\n(menu =6 cikis = 7)\n\n",hesap);//Hesaptaki parayı görmemizi sağlar
+			scanf("%d",&menu);
+			
+			if(menu == 6)
+					{
+						system("cls");
+					    main( );
+					}
+					if(menu==6)
+				       exit(7);//Programın kapanmasını sağlar
+					break;
+	case 2:
+		        system("cls");//Ekrandakileri siler
+				printf("\nHesabimdaki Para = %d TL\n",hesap);
+				printf("\nYatirmak istediginiz para miktarini giriniz = ");
+				scanf("%d",&yatırılanpara);
+				hesap += yatırılanpara;//Yatırdığımız parayı hesaba aktarır
+                printf("\nISLEM TAMAM!!!:)\n\nIslemdenden Sonra Hesabimdaki Para = %d TL\n\n(menu = 6 cikis = 7)\n\n",hesap);
+				scanf("%d",&menu);
+				if(menu == 6)
+					{
+						system("cls");
+					    main( );
+					}
+				if(menu==6)
+				       exit(7);
+					break;
+	case 3:
+		        system("cls");
+		        printf("\n\nHesabimdaki Para = %d TL\n\n",hesap);
+				printf("Cekeceginiz miktari giriniz: ");
+				scanf("%d",&cekilenpara);
+				if(hesap < cekilenpara)
+					    	printf("\nLİMİT YETERSİZ!!:)");
+				else
+					   {
+				        hesap -= cekilenpara;//Çekilen parayı hesapdan çıkartır
+                        printf("\nISLEM TAMAM!!!:)\n\nIslemdenden Sonra Hesabimdaki Para = %d TL",hesap);
+			           }
+					printf("\n\n(menu = 6 cikis = 7)\n\n");
+					scanf("%d",&menu);
+				if(menu == 6)
+					   {
+						system("cls");
+					    main( );
+					   }
+			    if(menu==6)
+				          exit(7);
+					       break;
+	case 4:
+		char paragonderilecekkisi[50];
+				system("cls");
+				printf("\nPara Gonderilecek kisinin adi = ");
+				scanf("%s",&paragonderilecekkisi);
+				if(strcmp(paragonderilecekkisi,"hau")==0)//para gönderilecek kişi ile tırnak içerisindeki kişinin aynı olup olmadığını kontrol eder
+				{
+					   printf("\nHesabimdaki Para = %d TL\n",hesap);
+					   printf("\nGondermek istediginiz para miktarini giriniz = ");
+					   scanf("%d",&gonderilenpara);
+					   if(hesap < gonderilenpara)
+					     	 printf("\nLİMİT YETERSİZ!!!");
+					   else
+				{
+					      hesap -= gonderilenpara;
+                          printf("\nISLEM TAMAM!!!\n\nIslemdenden Sonra Hesabimdaki Para = %d TL",hesap);
+					      printf("\n\nHarran Universtesine %d TL gonderildi..",gonderilenpara);
+					   }
+					}
+					else
+				       printf("\nBoyle bir hesap bulunamamaktadir!!!");
+					   printf("\n\n(menu = 6 cikis = 7)\n\n");
+					   scanf("%d",&menu);
+					
+					if(menu == 6)
+					{
+						system("cls");
+					    main( );
+					}
+					if(menu==6)
+				       exit(7);
+					break;
+				case 5:
+					exit(7);
+					break;
+				default:
+					printf("1,2,3,4,5 sayilarindan birini giriniz");
+					break;
+					getch();
+				}
+	
+		}
+			
+					}
+		
+	else 
+		printf("Kullanici adinizi veya sifrenizi yanlis girdiniz...");
+ 
+}
+	
+else
+	 printf("Kullanici adinizi veya sifrenizi yanlis girdiniz...");
+			getch();		
+				
+
+}
